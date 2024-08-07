@@ -1,0 +1,117 @@
+create database employeedb;
+show databases;
+use employeedb;
+create table employee(
+rollno int,
+name varchar(20),
+city varchar(20));
+show tables;
+insert into employee values(1,"ratan","Armoor");
+insert into employee values(2,"gautam","Morthad");
+insert into employee values(3,"anuj","Velpur");
+insert into employee values(4,"rohan","Venchiriyal");
+insert into employee values(5,"ojas","Solapur");
+select*from employee;
+use employeedb;
+
+
+create database emp;
+show databases;
+use empdb;
+create table emp(
+empno decimal(4,0) not null,
+ename varchar(10)default null,
+jon varchar(9) default null,
+mgr decimal(4,0) default null,
+hiredate date default null,
+sal decimal(7,2) default null,
+comm decimal(7,2) default null,
+deptno decimal(2,0) default null);
+show tables;
+
+insert into emp values('7369','SMITH','CLERK','7902','1980-12-17','800.00',NULL,'20');
+insert into emp values('7499','ALLEN','SALESMAN','7698','1981-02-20','1600.00','300.00','30');
+insert into emp values('7521','WARD','SALESMAN','7698','1981-02-22','1250.00','500.00','30');
+insert into emp values('7566','JONES','MANAGER','7839','1981-04-02','2975.00',NULL,'20');
+insert into emp values('7654','MARTIN','SALESMAN','7698','1981-09-28','1250.00','1400.00','30');
+insert into emp values('7698','BLAKE','MANAGER','7839','1981-05-01','2850.00',NULL,'30');
+insert into emp values('7782','CLARK','MANAGER','7839','1981-06-09','2450.00',NULL,'10');
+insert into emp values('7788','SCOTT','ANALYST','7566','1982-12-09','3000.00',NULL,'20');
+insert into emp values('7839','KING','PRESIDENT',NULL,'1981-09-08','1500.00',NULL,'10');
+insert into emp values('7844','TURNER','SALESMAN','7698','1981-09-08','1500.00','0.00','30');
+insert into emp values('7876','ADAMS','CLERK','7788','1983-01-12','1100.00',NULL,'20');
+insert into emp values('7900','JAMES','CLERK','7698','1981-12-03','950.00',NULL,'30');
+insert into emp values('7902','FORD','ANALYST','7566','1981-12-03','3000.00',NULL,'20');
+insert into emp values('7934','MILLER','CLERK','7782','1982-01-23','1300.00',NULL,'10');
+select*from emp;
+
+create database deptdb;
+show databases;
+use deptdb;
+create table dept (
+  deptno decimal(2,0) default NULL,
+  dname varchar(14) default NULL,
+  loc varchar(13) default NULL);
+  
+insert into dept values('10','ACCOUNTING','NEW YORK');
+insert into dept values('20','RESEARCH','DALLAS');
+insert into dept values('30','SALES','CHICAGO');
+insert into dept values('40','OPERATIONS','BOSTON');
+select*from dept;
+
+
+select*from emp where deptno=10;
+select ename,sal,hiredate from emp;
+select ename,sal,hiredate from emp where deptno=10;
+
+select ename,sal,deptno from emp where sal>1500 and deptno=30;
+select ename,sal,deptno from emp where sal>1500 or deptno=30;
+
+select*from emp where mgr=7839 and deptno=10;
+
+select ename, sal from emp where sal>=2450 and sal<=5000;
+select ename,sal from emp where sal between 2450 and 5000;
+
+select ename,job from emp where job in('SALESMAN','CLERK','MANAGER');
+select*from emp;
+
+select ename,jon from emp where jon in('SALESMAN','CLERK','MANAGER');
+select ename,jon from emp where jon not in('SALESMAN','CLERK','MANAGER');
+
+select ename,sal,sal*12 from emp;
+select ename,sal,sal*12 as 'Annual Salary' from emp;
+
+select ename,deptno,jon,sal/26 as 'Daily Wages' from emp where deptno in(20,30) and jon in('SALESMAN','CLERK');
+
+select ename,sal,sal*12 as 'Annual Salary', sal/26 'Daily Wages' from emp;
+
+
+QUERIES:-
+
+select*from emp where deptno=10;
+select ename,sal,hiredate from emp;
+select ename,sal,hiredate from emp where deptno=10;
+
+select ename,sal,deptno from emp where sal>1500 and deptno=30;
+select ename,sal,deptno from emp where sal>1500 or deptno=30;
+
+select*from emp where mgr=7839 and deptno=10;
+
+select ename, sal from emp where sal>=2450 and sal<=5000;
+select ename,sal from emp where sal between 2450 and 5000;
+
+select ename,jon from emp where jon in('SALESMAN','CLERK','MANAGER');
+select ename,jon from emp where jon not in('SALESMAN','CLERK','MANAGER');
+
+select ename,sal,sal*12 from emp;
+select ename,sal,sal*12 as 'Annual Salary' from emp;
+
+select ename,sal,sal*12 as 'Annual Salary', sal/26 'Daily Wages' from emp;
+
+select ename,deptno,jon,sal/26 as 'Daily Wages' from emp where deptno in(20,30) and jon in('SALESMAN','CLERK');
+
+
+
+ 
+
+  
