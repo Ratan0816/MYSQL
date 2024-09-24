@@ -1,0 +1,52 @@
+create database testdb5;
+use testdb5;
+create table customer(
+customer_id int primary key,
+customer_name varchar(20),
+customer_phone int,
+customer_email varchar(50),
+customer_city varchar(50)
+);
+insert into customer values(1,"ratan","938492829","dhruv@gmail.com","mumbai");
+insert into customer values (2,"joel","84029849","joel@gmail.com","jersey"),("3","billy","749284874","billy@gmail.com","new york")
+,(4,"marvin","48390220","mm@gmail.com","mumbai");
+insert into customer values(5,"soldier boy","8593932","soldierboy@gmail.com","africa");
+select * from customer;
+alter table customer add column deptno int ,
+add column salary int;
+update customer
+set deptno=20;
+update customer
+set salary = 4000
+where customer_city = 'jersey';
+update customer
+set salary = 3000
+where customer_city = 'mumbai';
+update customer
+set salary = 6000
+where customer_city = 'new york';
+update customer
+set salary = 5000
+where customer_city = 'africa';
+select customer_name,salary/26 as 'daily wages' from customer;
+select customer_name , salary*12 as "annual wages" from customer;
+select customer_name ,salary/26 as 'daily wages' from customer where customer_city = 'nashik';
+select customer_name ,salary*12 as 'annual wages' from customer where customer_city = 'mumbai';
+select * from customer where salary > 5000;
+update customer
+set customer_city = 'nashik'
+where customer_id=2;
+update customer
+set customer_city = 'pune'
+where customer_id=3;
+update customer
+set customer_city = 'nashik'
+where customer_id=5;
+select * from customer where customer_name like 'd%';
+select * from customer where customer_name like 'd%v';
+select distinct customer_city from customer;
+select * from customer where customer_name in ("ratan","billy","joel");
+select * from customer where customer_city not in ("nashik","pune");
+insert into customer values(6,"noir","7872952","noir@gmail.com","pune",30,7000);
+select deptno, sum(salary) from customer group by deptno;
+select max(salary),min(salary),avg(salary) from customer;
